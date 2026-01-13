@@ -3,7 +3,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import Layout from './components/Layout';
 import Fretboard from './components/Fretboard';
 import Tuner from './components/Tuner';
-import { AppView, AIResponse } from './types';
+import { AppView, AIResponse, LessonSection } from './types';
 import { NOTES, SCALES, GUITAR_CURRICULUM, CurriculumLesson } from './constants';
 import { getAITutorResponse } from './services/geminiService';
 
@@ -17,8 +17,7 @@ const App: React.FC = () => {
 
   // States for Curriculum Lessons
   const [activeLesson, setActiveLesson] = useState<CurriculumLesson | null>(null);
-  const [lessonContent, setLessonContent] = useState<string | null>(null);
-
+  
   // Progress State
   const [completedLessons, setCompletedLessons] = useState<string[]>([]);
 
@@ -61,8 +60,6 @@ const App: React.FC = () => {
 
   const loadLesson = (lesson: CurriculumLesson) => {
     setActiveLesson(lesson);
-    // Use static content immediately
-    setLessonContent(lesson.content || "Conteúdo em desenvolvimento.");
   };
 
   const toggleLessonCompletion = (lessonId: string) => {
@@ -74,6 +71,90 @@ const App: React.FC = () => {
   };
 
   const progressPercentage = Math.round((completedLessons.length / GUITAR_CURRICULUM.length) * 100);
+
+  const renderSection = (section: LessonSection, index: number) => {
+    switch (section.type) {
+      case 'heading':
+        return (
+          <h3 key={index} className="text-2xl font-bold text-white mt-8 mb-4 border-l-4 border-amber-500 pl-4">
+            {section.content as string}
+          </h3>
+        );
+      case 'text':
+        return (
+          <p key={index} className="text-slate-300 text-lg leading-relaxed mb-6">
+            {section.content as string}
+          </p>
+        );
+      case 'list':
+        return (
+          <ul key={index} className="space-y-2 mb-6 ml-4">
+            {(section.content as string[]).map((item, i) => (
+              <li key={i} className="flex items-start gap-3 text-slate-300">
+                <span className="text-amber-500 mt-1.5">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        );
+      case 'fretboard':
+        return (
+          <div key={index} className="my-8 bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+            <Fretboard 
+              compact={true}
+              highlightedNotes={section.fretboardConfig?.notes}
+              rootNote={section.fretboardConfig?.root}
+              label={section.fretboardConfig?.label || section.title}
+            />
+          </div>
+        );
+      case 'tip':
+        return (
+          <div key={index} className="my-6 p-6 bg-amber-500/10 border border-amber-500/30 rounded-xl flex gap-4">
+            <div className="text-2xl">💡</div>
+            <div>
+              <h4 className="font-bold text-amber-500 mb-2">{section.title || 'Dica Pro'}</h4>
+              <p className="text-slate-300 text-sm">{section.content as string}</p>
+            </div>
+          </div>
+        );
+      case 'warning':
+        return (
+          <div key={index} className="my-6 p-6 bg-red-500/10 border border-red-500/30 rounded-xl flex gap-4">
+            <div className="text-2xl">⚠️</div>
+            <div>
+              <h4 className="font-bold text-red-400 mb-2">{section.title || 'Atenção'}</h4>
+              <p className="text-slate-300 text-sm">{section.content as string}</p>
+            </div>
+          </div>
+        );
+      case 'table':
+        return (
+          <div key={index} className="my-6 overflow-x-auto rounded-xl border border-slate-700">
+            <table className="w-full text-left text-sm">
+              <thead className="bg-slate-800 text-slate-200">
+                <tr>
+                  {section.tableData?.headers.map((h, i) => (
+                    <th key={i} className="p-4 font-bold uppercase tracking-wider">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800 bg-slate-900/50">
+                {section.tableData?.rows.map((row, i) => (
+                  <tr key={i} className="hover:bg-slate-800/50 transition-colors">
+                    {row.map((cell, j) => (
+                      <td key={j} className="p-4 text-slate-400">{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
 
   const renderHome = () => (
     <div className="space-y-12">
@@ -100,7 +181,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 transition-all">
           <div className="text-3xl mb-4">📍</div>
           <h3 className="text-xl font-bold mb-2">Trilha Progressiva</h3>
@@ -110,11 +191,6 @@ const App: React.FC = () => {
           <div className="text-3xl mb-4">🎸</div>
           <h3 className="text-xl font-bold mb-2">Aplicação Prática</h3>
           <p className="text-slate-400">Teoria aplicada diretamente ao braço da guitarra para visualização imediata.</p>
-        </div>
-        <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 transition-all">
-          <div className="text-3xl mb-4">⚡</div>
-          <h3 className="text-xl font-bold mb-2">Didática IA</h3>
-          <p className="text-slate-400">Conteúdo gerado dinamicamente para explicar cada tópico com clareza absoluta.</p>
         </div>
       </section>
     </div>
@@ -242,7 +318,7 @@ const App: React.FC = () => {
       return (
         <div className="space-y-6 animate-in fade-in duration-500">
           <button 
-            onClick={() => { setActiveLesson(null); setLessonContent(null); }}
+            onClick={() => setActiveLesson(null)}
             className="text-amber-500 hover:text-amber-400 font-bold flex items-center gap-2 mb-4"
           >
             ← Voltar ao Currículo
@@ -266,12 +342,17 @@ const App: React.FC = () => {
               <p className="text-slate-400 mt-2 text-lg">{activeLesson.description}</p>
             </div>
 
-            <div className="space-y-8">
-              {/* Content Section */}
+            <div className="space-y-2">
+              {/* Dynamic Content Renderer */}
               <div className="bg-slate-950/50 p-6 md:p-10 rounded-2xl border border-slate-800/50">
-                <div className="prose prose-invert prose-amber max-w-none text-slate-300 leading-relaxed whitespace-pre-wrap font-sans">
-                  {lessonContent}
-                </div>
+                {activeLesson.sections && activeLesson.sections.length > 0 ? (
+                  activeLesson.sections.map((section, index) => renderSection(section, index))
+                ) : (
+                  // Fallback for lessons not yet converted to new format
+                  <div className="prose prose-invert prose-amber max-w-none text-slate-300 leading-relaxed whitespace-pre-wrap font-sans">
+                     Conteúdo em desenvolvimento para o novo formato.
+                  </div>
+                )}
               </div>
             </div>
             
@@ -392,14 +473,6 @@ const App: React.FC = () => {
       {view === AppView.TUNER && <Tuner />}
       {view === AppView.AI_TUTOR && renderAITutor()}
       {view === AppView.LESSONS && renderLessons()}
-      {view === AppView.GLOSSARY && (
-        <div className="flex flex-col items-center justify-center py-20 text-slate-500">
-           <div className="text-5xl mb-4">📖</div>
-           <h3 className="text-2xl font-bold text-slate-300">Dicionário Musical</h3>
-           <p>Em breve: Um glossário completo de termos técnicos e teóricos.</p>
-           <button onClick={() => setView(AppView.HOME)} className="mt-6 text-amber-500 font-bold hover:underline">Voltar ao Início</button>
-        </div>
-      )}
     </Layout>
   );
 };
