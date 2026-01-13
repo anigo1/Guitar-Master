@@ -1,0 +1,7 @@
+{
+  "name": "GuitarMaster AI",
+  "description": "An interactive didactic platform for guitarists to learn music theory, fretboard visualization, and advanced concepts using Gemini AI.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
