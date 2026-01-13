@@ -4,7 +4,8 @@ export enum AppView {
   FRETBOARD = 'FRETBOARD',
   LESSONS = 'LESSONS',
   AI_TUTOR = 'AI_TUTOR',
-  GLOSSARY = 'GLOSSARY'
+  GLOSSARY = 'GLOSSARY',
+  TUNER = 'TUNER'
 }
 
 export interface Note {

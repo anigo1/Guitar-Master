@@ -2,6 +2,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import Layout from './components/Layout';
 import Fretboard from './components/Fretboard';
+import Tuner from './components/Tuner';
 import { AppView, AIResponse } from './types';
 import { NOTES, SCALES, GUITAR_CURRICULUM, CurriculumLesson } from './constants';
 import { getAITutorResponse } from './services/geminiService';
@@ -388,6 +389,7 @@ const App: React.FC = () => {
     <Layout currentView={view} onNavigate={setView} progress={progressPercentage}>
       {view === AppView.HOME && renderHome()}
       {view === AppView.FRETBOARD && renderFretboard()}
+      {view === AppView.TUNER && <Tuner />}
       {view === AppView.AI_TUTOR && renderAITutor()}
       {view === AppView.LESSONS && renderLessons()}
       {view === AppView.GLOSSARY && (

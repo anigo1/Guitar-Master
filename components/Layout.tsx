@@ -13,6 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ children, currentView, onNavigate, prog
   const navItems = [
     { id: AppView.HOME, label: 'Início', icon: '🏠' },
     { id: AppView.FRETBOARD, label: 'Braço Interativo', icon: '🎸' },
+    { id: AppView.TUNER, label: 'Afinador', icon: '🎙️' },
     { id: AppView.LESSONS, label: 'Aulas', icon: '📚' },
     { id: AppView.AI_TUTOR, label: 'Tutor AI', icon: '🤖' },
     { id: AppView.GLOSSARY, label: 'Dicionário', icon: '📖' },

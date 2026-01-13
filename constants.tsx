@@ -36,337 +36,485 @@ export const GUITAR_CURRICULUM: CurriculumLesson[] = [
   // Módulo 1: Fundamentos
   {
     id: 'f1',
-    title: 'Anatomia e Afinação',
+    title: 'Anatomia Completa e Afinação de Precisão',
     category: 'Basics',
-    description: 'Conheça seu instrumento e aprenda a deixá-lo pronto para tocar.',
+    description: 'Do headstock à ponte: entendendo a física do instrumento e técnicas profissionais de afinação.',
     level: 'Iniciante',
     order: 1,
     content: `
-# Anatomia da Guitarra e Afinação
+# Anatomia da Guitarra e Afinação Profissional
 
-## 1. As Partes da Guitarra
-Para dominar o instrumento, primeiro precisamos falar a mesma língua.
-* **Headstock (Mão):** Onde ficam as tarraxas para afinação.
-* **Braço (Neck):** Onde você digita as notas. Contém os trastes e as casas.
-* **Corpo (Body):** A parte principal onde ficam os captadores, ponte e controles.
+Tocar bem começa com um instrumento bem ajustado e compreendido. Vamos dissecar a guitarra.
 
-## 2. As Cordas
-A guitarra padrão tem 6 cordas, contadas de baixo para cima (da mais fina para a mais grossa):
-1. **E (Mizinha)** - Corda mais fina
-2. **B (Si)**
-3. **G (Sol)**
-4. **D (Ré)**
-5. **A (Lá)**
-6. **E (Mizão)** - Corda mais grossa
+## 1. Anatomia Detalhada
+### O Corpo (Body)
+É onde a ressonância acontece (em guitarras acústicas) ou onde a vibração é sustentada (em sólidas).
+* **Captadores (Pickups):** Os "microfones" da guitarra.
+    * *Single Coil:* Som brilhante, estalado (Ex: Fender Stratocaster).
+    * *Humbucker:* Som gordo, encorpado, cancela ruídos (Ex: Gibson Les Paul).
+* **Ponte (Bridge):** Onde as cordas se fixam. Pode ser fixa (mais estabilidade) ou flutuante (com alavanca/tremolo).
+* **Potenciômetros:** Volume e Tone. Dica: Usar o volume um pouco abaixo do máximo pode limpar o som de um amplificador distorcido.
 
-## 3. Como Afinar (Afinação Padrão)
-O método mais comum sem afinador eletrônico é o da "5ª Casa":
-1. Afine a 6ª corda (E) com uma referência (ex: diapasão ou outra música).
-2. Pressione a 6ª corda na **casa 5**. O som deve ser igual ao da 5ª corda solta.
-3. Pressione a 5ª corda na **casa 5**. O som deve ser igual ao da 4ª corda solta.
-4. Pressione a 4ª corda na **casa 5**. O som deve ser igual ao da 3ª corda solta.
-5. **Atenção:** Pressione a 3ª corda na **casa 4**. O som deve ser igual ao da 2ª corda solta.
-6. Pressione a 2ª corda na **casa 5**. O som deve ser igual ao da 1ª corda solta.
+### O Braço (Neck)
+* **Tensor (Truss Rod):** Uma barra de metal dentro do braço que compensa a tensão das cordas. Se o braço estiver curvado, o tensor precisa de ajuste (feito por luthier).
+* **Escala (Fretboard):** A madeira colada sobre o braço onde os trastes são fixados.
+* **Nut (Pestana):** Peça branca (osso ou plástico) na junção do braço com a mão. Define a altura das cordas soltas.
+
+### A Mão (Headstock)
+* **Tarraxas (Tuners):** Mecanismos para esticar as cordas. Tarraxas com trava (Locking Tuners) ajudam a manter a afinação.
+
+---
+
+## 2. As Cordas e Calibres
+As cordas são numeradas de baixo para cima (da mais fina para a mais grossa).
+1. **E (Mizinha)** - 1ª Corda
+2. **B (Si)** - 2ª Corda
+3. **G (Sol)** - 3ª Corda
+4. **D (Ré)** - 4ª Corda
+5. **A (Lá)** - 5ª Corda
+6. **E (Mizão)** - 6ª Corda
+
+*Dica Pro:* O "calibre" (ex: 0.09, 0.10) refere-se à espessura da corda Mizinha. Cordas mais grossas (0.11, 0.12) têm som mais encorpado, mas são mais duras de tocar.
+
+---
+
+## 3. Métodos de Afinação
+
+### A. Método Eletrônico (O Padrão)
+Sempre o mais preciso. Afinadores de pedal ou clip ("clip-on") captam a vibração da madeira, sendo imunes a ruído externo.
+
+### B. Método Relativo (5ª Casa) - Para emergências
+Afine a corda 6 (Mizão) com uma referência externa. Depois:
+1. Casa 5 na corda 6 = Corda 5 Solta (A)
+2. Casa 5 na corda 5 = Corda 4 Solta (D)
+3. Casa 5 na corda 4 = Corda 3 Solta (G)
+4. **Casa 4** na corda 3 = Corda 2 Solta (B) *(A exceção!)*
+5. Casa 5 na corda 2 = Corda 1 Solta (E)
+
+### C. Método dos Harmônicos (Avançado)
+Oferece mais precisão auditiva pois os harmônicos continuam soando enquanto você ajusta a tarraxa.
+* Toque o harmônico natural na **Casa 5** da corda mais grossa (apenas encoste o dedo sobre o traste, não aperte).
+* Toque o harmônico natural na **Casa 7** da corda logo abaixo.
+* Os sons devem ser idênticos (exceto entre as cordas G e B).
+
+## 4. Oitavas e Entonação
+Se sua guitarra afina as cordas soltas mas soa desafinada nas casas agudas, a "oitava" está desregulada.
+*Teste:* Toque a corda solta e depois a mesma corda na casa 12. O afinador deve marcar exatamente a mesma nota. Se não, a ponte precisa de ajuste (luthieria).
     `
   },
   {
     id: 'f2',
-    title: 'Notas no Braço (Sistema Cromático)',
+    title: 'Mapeamento Absoluto do Braço',
     category: 'Basics',
-    description: 'Como localizar qualquer nota em qualquer corda e casa.',
+    description: 'Domine a localização de notas, enarmonia e atalhos de oitavas para nunca mais se perder.',
     level: 'Iniciante',
     order: 2,
     content: `
-# Mapeando o Braço da Guitarra
+# Mapeamento Absoluto do Braço
 
-## O Alfabeto Musical
-Na música, usamos as 7 primeiras letras do alfabeto, mas com acidentes (sustenidos e bemóis):
+Entender o braço não é decorar casa por casa, é entender os padrões geométricos.
+
+## 1. O Sistema Cromático e Enarmonia
+Existem apenas 12 notas na música ocidental.
 **A - A# - B - C - C# - D - D# - E - F - F# - G - G#**
 
-### Regras de Ouro:
-1. Entre **B e C** não existe sustenido.
-2. Entre **E e F** não existe sustenido.
-*(Lembre-se: "Si" e "Mi" não têm sustenido)*
+### O Conceito de Enarmonia
+Uma nota pode ter dois nomes.
+* **C# (Dó Sustenido)** é a mesma nota que **Db (Ré Bemol)**.
+* **D# (Ré Sustenido)** é a mesma nota que **Eb (Mi Bemol)**.
+*Visualmente:* É a mesma casa no braço da guitarra. O nome muda dependendo da tonalidade da música (contexto teórico).
 
-## Como Encontrar Notas
-Cada casa na guitarra avança a nota em meio tom (um passo na sequência acima).
+### As Duas Regras de Ouro
+Existem dois pares de notas que **não têm sustenido/bemol** entre elas (distância de meio tom apenas):
+1. **B para C** (Si para Dó)
+2. **E para F** (Mi para Fá)
 
-**Exemplo na Corda E (Mizão):**
-* Corda Solta: **E**
-* Casa 1: **F** (pois E não tem sustenido)
-* Casa 2: **F#**
-* Casa 3: **G**
-* Casa 4: **G#**
-* Casa 5: **A**
+---
 
-## Exercício Prático
-Tente encontrar todos os **Dó (C)** nas primeiras 12 casas.
-* Dica: Na corda A (5ª corda), o C está na casa 3.
-* Na corda E (6ª corda), o C está na casa 8.
+## 2. A Geometria das Oitavas (Atalhos)
+Para achar a mesma nota em outra oitava (mais aguda), use estas formas geométricas fixas:
+
+### Salto de 2 Cordas
+* Pule uma corda para baixo e avance 2 casas.
+* *Exemplo:* Nota **G** na corda 6 (Casa 3). Pule a corda 5. O próximo **G** está na corda 4 (Casa 5).
+
+### A Exceção da Corda B
+* Sempre que cruzar para a corda B (Si), adicione +1 casa à regra.
+* *Exemplo:* Nota **C** na corda 3 (Casa 5). Para achar a oitava na corda 1, avance 3 casas (não 2). O **C** estará na casa 8.
+
+---
+
+## 3. As Marcações (Inlays)
+As bolinhas no braço não são aleatórias. Elas marcam intervalos importantes a partir da corda solta:
+* **Casa 3:** Terça Menor (aprox.)
+* **Casa 5:** Quarta Justa (Referência de afinação)
+* **Casa 7:** Quinta Justa (Harmônico forte)
+* **Casa 9:** Sexta Maior / Sétima
+* **Casa 12:** Oitava (O ciclo recomeça!)
+
+**Atenção à Casa 12:** Tudo que acontece na casa 0 (corda solta) se repete na casa 12. Tudo na casa 1 se repete na 13, e assim por diante. A guitarra "zera" na casa 12.
     `
   },
   {
     id: 'f3',
-    title: 'Intervalos Musicais: A Base de Tudo',
+    title: 'Teoria dos Intervalos: O DNA da Música',
     category: 'Theory',
-    description: 'Entenda as distâncias entre as notas (Tônicas, 3ªs, 5ªs).',
+    description: 'Uma análise profunda das distâncias musicais e suas qualidades emocionais.',
     level: 'Iniciante',
     order: 3,
     content: `
-# Intervalos Musicais
+# Teoria Completa dos Intervalos
 
-Intervalo é a distância entre duas notas. É o DNA da música; define se o som é feliz, triste, tenso ou relaxado.
+Entender intervalos é o "superpoder" que permite tirar músicas de ouvido. Intervalo é a distância e a relação sonora entre duas notas.
 
-## Tom e Semitom
-* **Semitom (S):** A menor distância na guitarra (1 casa).
-* **Tom (T):** Dois semitons (2 casas).
+## 1. Tabela Mestra de Intervalos
+Usando C (Dó) como Tônica para exemplificar:
 
-## Os Intervalos Essenciais
-Usando C (Dó) como referência (Tônica):
+| Intervalo | Distância | Nota (Ref C) | Sensação Sonora (Qualidade) |
+| :--- | :--- | :--- | :--- |
+| **Tônica (1)** | 0 tons | C | Uníssono, Repouso total. |
+| **2ª Menor (b2)** | 0.5 tom | Db | Tensão máxima, "Tubarão", dissonante. |
+| **2ª Maior (2)** | 1 tom | D | Doce, mas pede movimento. Sus2. |
+| **3ª Menor (b3)** | 1.5 tom | Eb | Triste, Sombria. Define o Acorde Menor. |
+| **3ª Maior (3)** | 2 tons | E | Feliz, Brilhante. Define o Acorde Maior. |
+| **4ª Justa (4)** | 2.5 tons | F | Solene, "Amém". Sus4. |
+| **4ª Aum / 5ª Dim (b5/#4)** | 3 tons | F#/Gb | O "Trítono". Diabólico, instável, bluesy. |
+| **5ª Justa (5)** | 3.5 tons | G | Potência, Estabilidade. Power Chord. |
+| **6ª Menor (b6)** | 4 tons | Ab | Dramática, Angustiante. |
+| **6ª Maior (6)** | 4.5 tons | A | Doce, Nostálgica. MPB/Dorian. |
+| **7ª Menor (b7)** | 5 tons | Bb | Bluesy, Funk, Tensão média. |
+| **7ª Maior (7M)** | 5.5 tons | B | Jazz, Sonhadora, Sofisticada. |
+| **8ª Justa (8)** | 6 tons | C | A mesma nota, mais aguda. |
 
-1. **Segunda Maior (2M):** 1 Tom (C -> D)
-2. **Terça Maior (3M):** 2 Tons (C -> E) - *Define o acorde Maior (Feliz)*
-3. **Terça Menor (3m):** 1 Tom e meio (C -> Eb) - *Define o acorde Menor (Triste)*
-4. **Quinta Justa (5J):** 3 Tons e meio (C -> G) - *O "Power Chord"*
-5. **Oitava Justa (8J):** 6 Tons (C -> C agudo)
+---
 
-## Aplicação Visual
-Na guitarra, a **Quinta Justa** está quase sempre uma corda abaixo e duas casas à frente da tônica (exceto entre as cordas G e B).
-Isso forma o famoso "Power Chord" usado no Rock.
+## 2. Intervalos Compostos (Extensões)
+Quando passamos da oitava, os intervalos ganham novos nomes (usados em acordes de Jazz/Neo-Soul):
+* **9ª (Nona)** = É a 2ª, uma oitava acima.
+* **11ª (Décima Primeira)** = É a 4ª, uma oitava acima.
+* **13ª (Décima Terceira)** = É a 6ª, uma oitava acima.
+
+---
+
+## 3. Visualização Prática (Shapes)
+Memorize a localização relativa à Tônica (R) na corda 6 (E):
+* **5ª Justa:** Uma corda abaixo, +2 casas.
+* **3ª Maior:** Uma corda abaixo, -1 casa.
+* **3ª Menor:** Uma corda abaixo, -2 casas.
+* **4ª Justa:** Mesma casa, corda de baixo.
+* **Oitava:** Duas cordas abaixo, +2 casas.
+
+*Exercício:* Escolha uma nota aleatória no braço e tente encontrar sua 5ª e sua 3ª Maior instantaneamente.
     `
   },
   // Módulo 2: Harmonia e Acordes
   {
     id: 'h1',
-    title: 'Formação de Tríades Maiores e Menores',
+    title: 'Tríades, Inversões e Sus chords',
     category: 'Theory',
-    description: 'Como os acordes básicos são construídos.',
+    description: 'Aprofundamento na construção de acordes, voicings abertos e fechados.',
     level: 'Iniciante',
     order: 4,
     content: `
-# Formação de Tríades
+# Tríades, Inversões e Variações
 
-Um acorde básico (tríade) é formado por apenas 3 notas empilhadas.
+Você já sabe que Tônica, 3ª e 5ª formam o acorde. Agora vamos manipular isso.
 
-## A Fórmula Mágica
-Todo acorde nasce da Tônica (1), Terça (3) e Quinta (5).
+## 1. Fórmulas de Construção
+| Tipo de Acorde | Fórmula | Exemplo (C) | Sonoridade |
+| :--- | :--- | :--- | :--- |
+| **Maior** | 1 - 3 - 5 | C - E - G | Feliz, Resolvido |
+| **Menor** | 1 - b3 - 5 | C - Eb - G | Triste, Sério |
+| **Diminuto** | 1 - b3 - b5 | C - Eb - Gb | Tenso, Terror |
+| **Aumentado** | 1 - 3 - #5 | C - E - G# | Onírico, Flutuante |
+| **Sus2** | 1 - 2 - 5 | C - D - G | Aberto, Moderno |
+| **Sus4** | 1 - 4 - 5 | C - F - G | Tensão que pede resolução p/ Maior |
 
-### 1. Acorde Maior
-Fórmula: **Tônica + 3ª Maior + 5ª Justa**
-* Exemplo (C Maior): C - E - G
-* Som: Brilhante, estável, "feliz".
+*Nota:* Acordes SUS (Suspensos) não têm terça, por isso não são nem maiores nem menores. Eles soam ambíguos.
 
-### 2. Acorde Menor
-Fórmula: **Tônica + 3ª Menor + 5ª Justa**
-* Exemplo (C Menor): C - Eb - G
-* Som: Melancólico, sério, "triste".
+---
 
-## Note a Diferença
-A única diferença entre um acorde maior e um menor é a **Terça**.
-Se você pegar um acorde de E Maior e descer a nota da Terça em 1 casa, ele vira E Menor.
+## 2. Inversões de Acordes
+Não é obrigatório que a Tônica seja a nota mais grave (o baixo). Mudar a nota do baixo cria uma "Inversão".
+
+* **Estado Fundamental:** Baixo na Tônica (C-E-G). Som sólido.
+* **Primeira Inversão:** Baixo na Terça (E-G-C). Representado como C/E. Som mais doce e lírico.
+* **Segunda Inversão:** Baixo na Quinta (G-C-E). Representado como C/G. Som instável, pede movimento.
+
+*Aplicação:* Use inversões para criar linhas de baixo melódicas sem mudar os acordes da música.
+Ex: C -> G/B -> Am (O baixo faz a linha descendente Dó -> Si -> Lá).
+
+---
+
+## 3. Close vs. Open Voicings
+* **Close Voicing (Fechado):** As notas estão o mais próximas possível (dentro de uma oitava). Ex: Tríades básicas nas cordas agudas.
+* **Open Voicing (Aberto):** Espalhamos as notas por mais de uma oitava. Produz um som rico, largo e ressonante. A maioria dos acordes de "folky" ou "campfrie" (Dó aberto, Sol aberto) são Open Voicings.
     `
   },
   {
     id: 'h2',
-    title: 'O Sistema CAGED',
+    title: 'Domínio Total do Sistema CAGED',
     category: 'Technique',
-    description: 'Visualize o braço da guitarra através de 5 formatos básicos de acordes.',
+    description: 'Como conectar os 5 shapes para tocar qualquer acorde em qualquer lugar do braço.',
     level: 'Intermediário',
     order: 5,
     content: `
-# O Sistema CAGED
+# Domínio Total do Sistema CAGED
 
-O CAGED é um sistema que permite tocar o **mesmo acorde** em **5 regiões diferentes** do braço, usando os formatos dos acordes abertos que você já conhece:
-**C (Dó) | A (Lá) | G (Sol) | E (Mi) | D (Ré)**
+O CAGED não serve apenas para fazer acordes. Ele é o mapa para visualizar **escalas** e **arpejos** sobrepostos aos acordes.
 
-## Como Funciona?
-Imagine que a pestana do violão é uma barreira móvel. Se você fizer o formato de **A (Lá Maior)** mas usar uma pestana para mover tudo 2 casas para frente (casa 2), você estará tocando um **B (Si Maior)** com formato de A.
+## 1. A Lógica da Conexão
+Os desenhos se conectam como peças de quebra-cabeça. O fim de um desenho é o começo do próximo. A ordem é sempre C-A-G-E-D.
 
-## Os 5 Modelos para Dó Maior (C)
-1. **Modelo de C:** Acorde aberto normal.
-2. **Modelo de A:** Pestana na casa 3 (formato de A).
-3. **Modelo de G:** Pestana na casa 5 (formato de G - difícil!).
-4. **Modelo de E:** Pestana na casa 8 (formato de E).
-5. **Modelo de D:** Formato de D na casa 12.
+Se você está tocando um **Dó (C)**:
+1. Começa com o formato de **C** (casas 0-3).
+2. O próximo formato de Dó será o shape de **A** (na casa 3).
+3. O próximo será o shape de **G** (na casa 5 - difícil de montar, use partes dele).
+4. O próximo será o shape de **E** (na casa 8 - a famosa pestana).
+5. O próximo será o shape de **D** (na casa 12).
+6. Reinicia no shape de **C** (casa 12+).
 
-## Por que usar?
-Isso libera você de tocar acordes apenas no início do braço e ajuda a visualizar arpejos e escalas em todo o instrumento.
+## 2. Simplificando os Shapes "Impossíveis"
+Os formatos de G e D completos com pestana são desconfortáveis.
+*Dica Pro:* Não toque todas as cordas!
+* Para o shape de **G**: Toque apenas as cordas 2, 3 e 4 (tríade aguda) ou 4, 3 e 2 (power chord invertido). Isso é muito usado por Keith Richards (Rolling Stones) e Jimi Hendrix.
+* Para o shape de **D**: Mova a "triângulo" das cordas 1, 2 e 3 pelo braço. É uma tríade portátil perfeita.
+
+## 3. Exercício de Conexão
+Toque um acorde de C Maior e tente movê-lo pelo braço usando o CAGED, mas toque apenas as **4 cordas do meio** (D-G-B-e).
+Isso força você a ver as conexões harmônicas sem depender tanto da força bruta das pestanas de 6 cordas.
     `
   },
   {
     id: 'h3',
-    title: 'Campo Harmônico Maior',
+    title: 'Análise Funcional e Campo Harmônico',
     category: 'Theory',
-    description: 'Descubra quais acordes combinam entre si em uma música.',
+    description: 'Entenda as funções Tônica, Subdominante e Dominante para compor e rearmonizar.',
     level: 'Intermediário',
     order: 6,
     content: `
-# Campo Harmônico Maior
+# Análise Funcional e Campo Harmônico
 
-O Campo Harmônico é a "família" de acordes que moram dentro de uma escala. Se você está compondo uma música em Dó Maior, o campo harmônico te diz quais acordes você pode usar sem sair do tom.
+Saber os acordes do campo harmônico é o passo 1. O passo 2 é entender a **Função** (o "emprego") de cada um deles dentro da música.
 
-## A Regra dos Graus
-Para qualquer escala maior, a sequência de acordes (graus) segue sempre esta ordem de qualidade:
+## 1. As Três Funções Harmônicas
 
-1. **I (Maior)**
-2. **ii (Menor)**
-3. **iii (Menor)**
-4. **IV (Maior)**
-5. **V (Maior)**
-6. **vi (Menor)**
-7. **vii° (Meio Diminuto)**
+### A. Tônica (Repouso / Casa)
+Onde a música "relaxa" e se resolve.
+* **Graus:** I, iii, vi
+* *Em Dó Maior:* C, Em, Am
+* O **vi (Am)** é a tônica da relativa menor, por isso substitui tão bem o I (C).
 
-## Exemplo em Dó (C)
-1. **C** (Maior)
-2. **Dm** (Menor)
-3. **Em** (Menor)
-4. **F** (Maior)
-5. **G** (Maior)
-6. **Am** (Menor) - *Relativa Menor*
-7. **Bm7(b5)** (Meio Diminuto)
+### B. Subdominante (Movimento / Viagem)
+Cria um afastamento da casa, mas sem urgência excessiva. Uma tensão suave.
+* **Graus:** IV, ii
+* *Em Dó Maior:* F, Dm
+* O **ii (Dm)** é o acorde de jazz/bossa favorito para preparar o final (ii-V-I).
 
-Tente tocar essa sequência. Você perceberá que todos soam bem juntos!
+### C. Dominante (Tensão / Perigo)
+Cria uma tensão forte que "implora" para voltar à Tônica.
+* **Graus:** V, vii°
+* *Em Dó Maior:* G, Bm7(b5)
+* O **V7 (G7)** contém o "Trítono" (intervalo tenso entre as notas F e B) que precisa ser resolvido.
+
+---
+
+## 2. A Cadência Mais Famosa: ii - V - I
+90% do Jazz e da MPB se baseia nisso.
+1. **ii (Subdominante):** Prepara. (Dm7)
+2. **V (Dominante):** Tensiona. (G7)
+3. **I (Tônica):** Resolve. (C7M)
+
+*Exercício:* Pegue uma música simples (só C, F, G) e tente substituir os acordes por seus "primos" funcionais.
+* Troque C por Am.
+* Troque F por Dm.
+* Veja como a música muda de "alegre" para "melancólica" mas a estrutura harmônica funciona perfeitamente.
+
+## 3. Campo Harmônico Menor
+Apenas lembre que a ordem muda. Se a música está em Lá Menor (Am), a tônica agora é o Am.
+* i (Am) - ii° (Bm7b5) - III (C) - iv (Dm) - v (Em) - VI (F) - VII (G).
     `
   },
   // Módulo 3: Escalas e Melodia
   {
     id: 'e1',
-    title: 'Escala Pentatônica',
+    title: 'Segredos da Pentatônica: Blue Note e Bends',
     category: 'Technique',
-    description: 'A escala mais utilizada no rock e blues.',
+    description: 'Vá além do shape 1. Adicione a Blue Note e aprenda os "Target Notes" para bends.',
     level: 'Iniciante',
     order: 7,
     content: `
-# A Escala Pentatônica
+# Segredos da Pentatônica
 
-Se você quer solar Rock, Blues ou Pop, esta é a escala mais importante. Como o nome diz, ela tem apenas **5 notas**.
+A "Penta" é fácil de aprender, mas difícil de dominar. O segredo não está nas notas que você toca, mas em *como* você toca.
 
-## Pentatônica Menor (A mais usada)
-Fórmula: **1 - b3 - 4 - 5 - b7**
-Em Lá Menor (Am): **A - C - D - E - G**
+## 1. As 5 Caixas (Boxes)
+Assim como o CAGED, a pentatônica tem 5 desenhos que cobrem o braço todo.
+* O **Shape 1** (Am na casa 5) é o clássico.
+* O **Shape 2** conecta-se logo à frente (iniciando na nota C, casa 8). Este é o "Shape Maior" da pentatônica.
 
-## O "Shape 1" (Desenho Clássico)
-Este é o desenho que 90% dos guitarristas aprendem primeiro. Na tonalidade de Lá Menor (Am), começa na casa 5 da corda E (Mizão).
+*Dica:* Alterne entre o Shape 1 (som de Rock/Blues menor) e o Shape 2 (som de Country/Allman Brothers "alegre") sobre a mesma tonalidade para variar a intenção do solo.
 
-* Corda E: 5 - 8
-* Corda A: 5 - 7
-* Corda D: 5 - 7
-* Corda G: 5 - 7
-* Corda B: 5 - 8
-* Corda e: 5 - 8
+## 2. A "Blue Note" (A Nota Secreta)
+É a nota que transforma a pentatônica em **Escala de Blues**.
+* Fórmula: Adicione uma **5ª Diminuta (b5)** à pentatônica menor.
+* *Em Lá Menor:* A nota é **Eb** (Ré Sustenido/Mi Bemol).
+* *Localização no Shape 1:* Corda A (Casa 6) e Corda G (Casa 8).
 
-## Dica de Improviso
-Você pode tocar essas notas em qualquer ordem sobre um "Backing Track em Am" e soará correto. As notas de repouso (seguras) são a Tônica (A) nas casas 5 (Mizão), 7 (Corda D) e 5 (Mizinha).
+*Como usar:* Use a Blue Note apenas como nota de passagem. Não repouse nela, ou soará desafinado. É como um tempero picante: passe rápido por ela em direção à nota vizinha.
+
+## 3. Bends e Target Notes
+Não dê bends aleatórios. Você deve "mirar" em uma nota da escala.
+* **Bend na corda G (Casa 7):** Você está levantando a nota D para chegar na nota E (Tônica do acorde de Am no Shape 1 na casa 5 da corda B).
+* **Bend na corda B (Casa 8):** Você está levantando a nota G para chegar na nota A (Tônica).
+
+*Regra:* Saiba qual nota você quer atingir antes de levantar a corda. O ouvido agradece.
     `
   },
   {
     id: 'e2',
-    title: 'Escala Maior e Seus Desenhos',
+    title: 'Escala Maior: 3 Notas por Corda e Modos',
     category: 'Technique',
-    description: 'A fundação para entender tonalidades e solos.',
+    description: 'Padrões de velocidade e a estrutura completa da escala diatônica.',
     level: 'Intermediário',
     order: 8,
     content: `
-# Escala Maior Natural
+# Escala Maior (Diatônica) Avançada
 
-A Escala Maior é a mãe de todas as escalas ocidentais.
-Fórmula de intervalos: **Tom - Tom - Semitom - Tom - Tom - Tom - Semitom**
+A escala maior não é apenas Dó-Ré-Mi. É a régua pela qual medimos toda a música ocidental.
 
-## Os 7 Padrões (Shapes)
-Na guitarra, para tocar a escala maior em todo o braço sem grandes saltos, dividimos o braço em regiões. Geralmente usamos o sistema de **3 notas por corda**.
+## 1. Estrutura de Intervalos
+Memorize o padrão de Tons (T) e Semitons (S):
+**T - T - S - T - T - T - S**
+*C para D (T)* | *D para E (T)* | *E para F (S)* ...
 
-## A Relativa Menor
-Todo tom Maior tem um "irmão" Menor que usa exatamente as mesmas notas, mas começa no 6º grau.
-* Escala de C Maior: C D E F G A B
-* Escala de A Menor: A B C D E F G
+Essa estrutura cria as tensões naturais. Os semitons (E-F e B-C) são onde a "gravidade" da escala atua. O B (Sétima Maior) quer desesperadamente resolver no C (Oitava).
 
-Isso significa que se você aprender o desenho da escala de C Maior, você automaticamente já sabe a escala de A Menor Natural. Só muda a nota onde você "sente" que a frase termina (o repouso).
+## 2. Sistema "3 Notas Por Corda" (3NPS)
+Diferente do CAGED (que mantém você numa "caixa"), o sistema 3NPS é projetado para velocidade e fluidez horizontal.
+* Vantagem: O padrão de palhetada é consistente (baixo-cima-baixo, cima-baixo-cima...).
+* É o sistema favorito de guitarristas "shredders" como Paul Gilbert e John Petrucci.
+
+## 3. Harmonizando a Escala
+Se você empilhar terças sobre cada nota da escala, você cria o Campo Harmônico.
+1. C (+E+G) = C (Maior)
+2. D (+F+A) = Dm (Menor)
+3. E (+G+B) = Em (Menor)
+...
+Isso prova que escalas e acordes são a mesma coisa: Acorde é a escala tocada simultaneamente; Escala é o acorde tocado sequencialmente.
     `
   },
   {
     id: 'e3',
-    title: 'Modos Gregos (Introdução)',
+    title: 'Guia Definitivo dos Modos Gregos',
     category: 'Theory',
-    description: 'Dê cores diferentes aos seus solos usando modos.',
+    description: 'Compreenda a "nota característica" de cada modo e quando usar cada um.',
     level: 'Avançado',
     order: 9,
     content: `
-# Introdução aos Modos Gregos
+# Guia Definitivo dos Modos Gregos
 
-Modos não são "escalas novas". São apenas maneiras de tocar a escala maior dando ênfase a uma nota de partida diferente, o que muda a sonoridade (a "cor") da escala.
+Esqueça a ideia de que "Dórico é começar a escala de C em D". Isso é teoria de papel. Na prática, Modos são **sonoridades**.
 
-## Os 7 Modos
-Imagine a escala de Dó Maior (C-D-E-F-G-A-B).
+Para ouvir um modo, você precisa de um contexto harmônico (um baixo ou acorde soando no fundo).
 
-1. **Jônio (Ionian):** Começa em C. É a própria escala maior. (Som Feliz/Heroico)
-2. **Dórico (Dorian):** Começa em D. Menor com sexta maior. (Som Santana/Pink Floyd/Jazzy)
-3. **Frígio (Phrygian):** Começa em E. Menor com segunda menor. (Som Espanhol/Metal)
-4. **Lídio (Lydian):** Começa em F. Maior com quarta aumentada. (Som Sonhador/Filme Espacial)
-5. **Mixolídio (Mixolydian):** Começa em G. Maior com sétima menor. (Som Blues/Rock clássico)
-6. **Eólio (Aeolian):** Começa em A. É a escala menor natural. (Som Triste/Épico)
-7. **Lócrio (Locrian):** Começa em B. Meio diminuto. (Som Tenso/Instável - pouco usado)
+## Tabela de Sonoridades e Notas Características
 
-## Como estudar
-Não tente decorar tudo de uma vez. Comece dominando o som do **Dórico** (para blues/rock menor) e do **Mixolídio** (para rock maior).
+| Modo | Família | Nota Característica | Intervalo Chave | Vibe / Estilo |
+| :--- | :--- | :--- | :--- | :--- |
+| **Jônio** | Maior | 4ª Justa (Evite!) | T-T-S-T-T-T-S | Feliz, Infantil, Top 40. |
+| **Lídio** | Maior | **#4 (Quarta Aum)** | A 4ª sobe meio tom | Mágico, Simpsons, Steve Vai. |
+| **Mixolídio** | Maior | **b7 (Sétima Menor)** | A 7ª desce meio tom | Rock, AC/DC, Blues, Nordeste. |
+| **Eólio** | Menor | b6 (Sexta Menor) | T-S-T-T-S-T-T | Tristeza clássica, Iron Maiden. |
+| **Dórico** | Menor | **6 (Sexta Maior)** | A 6ª sobe meio tom | Funk, Pink Floyd, Santana. Menor mas "esperançoso". |
+| **Frígio** | Menor | **b2 (Segunda Menor)** | A 2ª desce meio tom | Metal, Flamenco, Maligno. |
+| **Lócrio** | Diminuto | b5 (Quinta Dim) | 2ª e 5ª descem | Estranho, Tenso. Quase nunca usado como tônica. |
+
+## Como Estudar (Pitch Axis Theory)
+Não mude a tonalidade, mude o modo!
+Grave um baixo contínuo em nota **Mi (E)**.
+1. Toque E Maior (Jônio).
+2. Toque E Lídio (coloque um A# na escala). Sinta a mudança de "feliz" para "mágico".
+3. Toque E Mixolídio (coloque um D natural na escala). Sinta virar "Rock".
+4. Toque E Menor (Eólio).
+5. Toque E Frígio (coloque um F natural). Sinta virar "Metal".
+
+Essa comparação com o *mesmo baixo* é a chave para seus ouvidos entenderem os modos.
     `
   },
   // Módulo 4: Avançado
   {
     id: 'a1',
-    title: 'Arpejos e Tétrades',
+    title: 'Arpejos, Sweep e Superimposição',
     category: 'Technique',
-    description: 'Tocando as notas do acorde individualmente com fluidez.',
+    description: 'Técnicas avançadas para solar seguindo a harmonia (Chord Tones).',
     level: 'Avançado',
     order: 10,
     content: `
-# Arpejos e Sweep Picking
+# Arpejos Avançados
 
-Arpejar significa tocar as notas de um acorde uma após a outra, em vez de todas juntas.
+Solar com arpejos é a diferença entre um "tocador de escalas" e um músico melódico. Você delineia a harmonia explicitamente.
 
-## Por que usar Arpejos?
-Quando você está solando e toca as notas exatas do acorde que está soando no fundo (Chord Tones), seu solo soa incrivelmente melódico e conectado com a música.
+## 1. Arpejos de Sétima
+Adicionar a sétima nota traz sofisticação (Jazz/Fusion).
+* **Maj7 (7M):** 1 - 3 - 5 - 7 (Som suave)
+* **Dom7 (7):** 1 - 3 - 5 - b7 (Som bluesy/tensão)
+* **Min7 (m7):** 1 - b3 - 5 - b7 (Som aveludado)
+* **m7b5 (Meio Dim):** 1 - b3 - b5 - b7 (Som tenso)
 
-## Tétrades
-São acordes de 4 notas (Tríade + Sétima).
-* **7M (Sétima Maior):** Som de Jazz/MPB.
-* **7 (Sétima Menor):** Som de Blues/Funk.
+## 2. Superimposição (O Pulo do Gato)
+Você pode tocar um arpejo *diferente* do acorde da base para gerar extensões coloridas (9, 11, 13) automaticamente.
 
-## Técnica: Sweep Picking
-Para tocar arpejos rápidos, usamos o "Sweep" (varredura). Em vez de palhetar alternado (baixo-cima), você "arrasta" a palheta em uma única direção através das cordas, como se estivesse varrendo.
-Requer muita coordenação entre a mão esquerda e direita para que as notas não soem emboladas (efeito "acorde"), mas sim separadas.
+*Exemplo:* A base está tocando **Am7**.
+* Se você tocar um arpejo de **Cmaj7** (C-E-G-B) sobre o baixo de A:
+    * C = b3 de Am
+    * E = 5 de Am
+    * G = b7 de Am
+    * B = **9 (Nona)** de Am
+*Resultado:* Você está tocando um som de **Am9** sofisticado, usando apenas um arpejo simples de Cmaj7 que você já conhece!
+
+*Regra Geral:* Toque o arpejo da terça menor acima da tônica para acordes menores (Cmaj7 sobre Am7). Toque o arpejo da quinta justa para acordes maiores (Gmaj7 sobre Cmaj7 = Cmaj9).
+
+## 3. Mecânica do Sweep Picking
+O segredo não é a mão direita rápida, é a **mão esquerda precisa**.
+Você precisa "desligar" (mutar) a nota anterior exatamente no momento que toca a próxima. Se deixar as duas soarem, vira um acorde rasqueado, não um sweep.
+O movimento da palheta deve ser contínuo, como se estivesse "caindo" pelas cordas, sem travar.
     `
   },
   {
     id: 'a2',
-    title: 'Ciclo de Quintas e Quartas',
+    title: 'O Ciclo de Quintas na Prática',
     category: 'Theory',
-    description: 'A ferramenta definitiva para modulação e composição.',
+    description: 'Ferramenta mestra para modulação, composição e encontrar acidentes.',
     level: 'Avançado',
     order: 11,
     content: `
-# O Ciclo de Quintas
+# O Ciclo de Quintas Desmistificado
 
-O Ciclo de Quintas é como um relógio dos tons musicais. Ele organiza as tonalidades pela quantidade de sustenidos (#) ou bemóis (b) que elas têm.
+O Ciclo não é apenas um diagrama bonito para pendurar na parede. É uma calculadora harmônica.
 
-## O Sentido Horário (Quintas - Sustenidos)
-Partindo de C (0 acidentes), se subirmos uma quinta justa (G), ganhamos 1 sustenido.
-* **C:** 0 #
-* **G:** 1 # (F#)
-* **D:** 2 # (F#, C#)
-* **A:** 3 # (F#, C#, G#)
-* **E:** 4 # ...
+## 1. Descobrindo a Armadura de Clave
+Quantos sustenidos tem em Si (B) Maior?
+Conte no ciclo sentido horário a partir de C (0):
+C(0) -> G(1) -> D(2) -> A(3) -> E(4) -> **B(5)**.
+Tem 5 sustenidos.
+*Quais são?* A ordem de entrada dos sustenidos é sempre F-C-G-D-A-E-B (Fa-Do-Sol-Re-La-Mi-Si).
+Então B Maior tem: F#, C#, G#, D#, A#.
 
-## O Sentido Anti-Horário (Quartas - Bemóis)
-Partindo de C, se descermos uma quinta (ou subirmos uma quarta) para F, ganhamos 1 bemol.
-* **C:** 0 b
-* **F:** 1 b (Bb)
-* **Bb:** 2 b (Bb, Eb)
-* **Eb:** 3 b ...
+## 2. Encontrando o Campo Harmônico Rapidamente
+Olhe para qualquer nota no ciclo (Ex: C no topo).
+* **Os vizinhos imediatos** são os acordes maiores do tom: F (Subdominante) à esquerda e G (Dominante) à direita.
+* **Os acordes logo abaixo** de cada um desses são os relativos menores: Dm (abaixo de F), Am (abaixo de C), Em (abaixo de G).
+*Pronto!* Você achou os 6 principais acordes do tom de C Maior apenas olhando o agrupamento no ciclo.
 
-## Para que serve?
-1. **Saber a armadura de clave:** Quantos sustenidos tem em Mi Maior? (4).
-2. **Modulação:** Mudar de tom para um vizinho no ciclo (ex: de C para G) é muito suave.
-3. **Composição:** A sequência ii-V-I segue o ciclo de quartas (movimento anti-horário).
+## 3. Modulação (Mudança de Tom)
+* **Modulação Suave:** Mude para um tom vizinho no ciclo (ex: de C para G). Apenas 1 nota muda na escala (F vira F#). É quase imperceptível.
+* **Modulação Dramática:** Pule para o lado oposto do ciclo (ex: de C para F#). Todas as notas mudam. Causa impacto "épico" (comum em finais de músicas pop).
+
+## 4. Empréstimo Modal
+Músicas em tom Maior frequentemente pegam acordes emprestados do tom Menor paralelo.
+* Exemplo: Música em C Maior usando um acorde Bb (Si Bemol).
+* Onde está o Bb? No ciclo, ele está no lado dos bemóis, "perto" do C menor. O ciclo te ajuda a ver o quão "distante" ou "exótico" um acorde emprestado vai soar.
     `
   }
 ];
