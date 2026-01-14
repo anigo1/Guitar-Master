@@ -36,6 +36,13 @@ export interface LessonSection {
   };
 }
 
+export interface QuizQuestion {
+  id: string;
+  question: string;
+  options: string[];
+  correctAnswer: number; // Index of the correct option
+}
+
 export interface Lesson {
   id: string;
   title: string;

@@ -20,6 +20,9 @@ const App: React.FC = () => {
   const [activeLesson, setActiveLesson] = useState<CurriculumLesson | null>(null);
   const [showLessonIndex, setShowLessonIndex] = useState(false); // Index state for lessons
   
+  // Quiz State
+  const [quizAnswers, setQuizAnswers] = useState<Record<string, number>>({});
+  
   // Progress State
   const [completedLessons, setCompletedLessons] = useState<string[]>([]);
 
@@ -39,6 +42,11 @@ const App: React.FC = () => {
   useEffect(() => {
     localStorage.setItem('guitar_master_progress', JSON.stringify(completedLessons));
   }, [completedLessons]);
+
+  // Reset quiz answers when lesson changes
+  useEffect(() => {
+    setQuizAnswers({});
+  }, [activeLesson]);
 
   const getScaleNotes = useCallback((root: string, scaleFormula: number[]) => {
     const rootIdx = NOTES.indexOf(root);
@@ -72,6 +80,15 @@ const App: React.FC = () => {
         : [...prev, lessonId]
     );
   };
+  
+  const handleQuizSelect = (questionId: string, optionIndex: number) => {
+    setQuizAnswers(prev => ({
+      ...prev,
+      [questionId]: optionIndex
+    }));
+  };
+
+  const isQuizPassed = activeLesson?.quiz?.every(q => quizAnswers[q.id] === q.correctAnswer) || false;
 
   const progressPercentage = Math.round((completedLessons.length / GUITAR_CURRICULUM.length) * 100);
 
@@ -421,18 +438,86 @@ const App: React.FC = () => {
                 </div>
               </div>
               
-              <div className="mt-8 lg:mt-12 flex flex-col sm:flex-row justify-between items-center gap-6 border-t border-slate-800 pt-8">
+              {/* QUIZ SECTION */}
+              <div className="mt-12 pt-8 border-t border-slate-800">
+                <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                  <span className="text-amber-500">?</span> Questionário de Fixação
+                </h3>
+                
+                {activeLesson.quiz && activeLesson.quiz.length > 0 ? (
+                  <div className="grid gap-6">
+                    {activeLesson.quiz.map((q) => {
+                       const selected = quizAnswers[q.id];
+                       const isCorrect = selected === q.correctAnswer;
+                       
+                       return (
+                        <div key={q.id} className="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
+                          <p className="font-semibold text-slate-200 mb-4">{q.question}</p>
+                          <div className="grid gap-2">
+                            {q.options.map((opt, idx) => {
+                              const isSelected = selected === idx;
+                              let btnClass = "text-left p-3 rounded-lg text-sm border transition-all ";
+                              
+                              if (isSelected) {
+                                if (isCorrect) {
+                                  btnClass += "bg-green-500/20 border-green-500 text-green-400 font-bold";
+                                } else {
+                                  btnClass += "bg-red-500/20 border-red-500 text-red-400";
+                                }
+                              } else {
+                                btnClass += "bg-slate-900 border-slate-800 text-slate-400 hover:bg-slate-800";
+                              }
+
+                              return (
+                                <button
+                                  key={idx}
+                                  onClick={() => handleQuizSelect(q.id, idx)}
+                                  className={btnClass}
+                                >
+                                  {opt}
+                                </button>
+                              );
+                            })}
+                          </div>
+                          {selected !== undefined && !isCorrect && (
+                            <p className="text-red-400 text-xs mt-3">Resposta incorreta. Tente novamente.</p>
+                          )}
+                          {selected !== undefined && isCorrect && (
+                            <p className="text-green-500 text-xs mt-3 font-bold">Correto!</p>
+                          )}
+                        </div>
+                       );
+                    })}
+                  </div>
+                ) : (
+                  <p className="text-slate-500 text-sm">Nenhum questionário disponível para esta aula.</p>
+                )}
+              </div>
+
+              <div className="mt-8 lg:mt-12 flex flex-col sm:flex-row justify-between items-center gap-6 pt-8">
                  <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Nível: <span className="text-amber-500">{activeLesson.level}</span></p>
-                 <button 
-                   onClick={() => toggleLessonCompletion(activeLesson.id)}
-                   className={`w-full sm:w-auto px-6 py-2.5 rounded-xl transition-all text-xs font-bold ${
-                     isCompleted 
-                     ? 'bg-slate-800 text-slate-400 hover:text-white border border-slate-700' 
-                     : 'bg-amber-600 hover:bg-amber-500 text-white shadow-lg shadow-amber-500/20'
-                   }`}
-                 >
-                   {isCompleted ? 'Marcar como não concluída' : 'Finalizar Aula'}
-                 </button>
+                 
+                 <div className="flex flex-col items-end gap-2 w-full sm:w-auto">
+                    {!isQuizPassed && !isCompleted && activeLesson.quiz && activeLesson.quiz.length > 0 && (
+                      <p className="text-xs text-amber-500 font-medium">Responda todas as questões corretamente para finalizar.</p>
+                    )}
+                    <button 
+                      onClick={() => toggleLessonCompletion(activeLesson.id)}
+                      disabled={!isQuizPassed && !isCompleted}
+                      className={`w-full sm:w-auto px-6 py-2.5 rounded-xl transition-all text-xs font-bold flex items-center justify-center gap-2 ${
+                        isCompleted 
+                        ? 'bg-slate-800 text-slate-400 hover:text-white border border-slate-700' 
+                        : isQuizPassed 
+                          ? 'bg-green-600 hover:bg-green-500 text-white shadow-lg shadow-green-500/20 animate-pulse'
+                          : 'bg-slate-800 text-slate-600 cursor-not-allowed border border-slate-800'
+                      }`}
+                    >
+                      {isCompleted ? 'Marcar como não concluída' : 'Finalizar Aula'}
+                      {!isCompleted && !isQuizPassed && (
+                        <span className="text-[10px]">🔒</span>
+                      )}
+                    </button>
+                 </div>
               </div>
             </div>
           </div>
