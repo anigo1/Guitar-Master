@@ -4,7 +4,8 @@ export enum AppView {
   FRETBOARD = 'FRETBOARD',
   LESSONS = 'LESSONS',
   AI_TUTOR = 'AI_TUTOR',
-  TUNER = 'TUNER'
+  TUNER = 'TUNER',
+  CHORDS = 'CHORDS'
 }
 
 export interface Note {
@@ -12,19 +13,23 @@ export interface Note {
   octave: number;
 }
 
+export interface ChordPosition {
+  string: number; // 0 to 5 (E to e)
+  fret: number;   // -1 for Muted (X), 0 for Open (O), 1+ for Fretted
+}
+
 export type LessonSectionType = 'text' | 'heading' | 'fretboard' | 'tip' | 'warning' | 'list' | 'table';
 
 export interface LessonSection {
   type: LessonSectionType;
-  content?: string | string[]; // string for text/heading, array for lists
+  content?: string | string[];
   title?: string;
-  // For Fretboard sections
   fretboardConfig?: {
-    notes: string[];
+    notes?: string[];
+    positions?: ChordPosition[]; // Added specific positions support
     root?: string;
     label?: string;
   };
-  // For Tables
   tableData?: {
     headers: string[];
     rows: string[][];
@@ -37,12 +42,6 @@ export interface Lesson {
   category: 'Basics' | 'Theory' | 'Technique' | 'Rhythm';
   description: string;
   content: string;
-}
-
-export interface FretboardState {
-  highlightedNotes: string[];
-  scaleName?: string;
-  rootNote?: string;
 }
 
 export interface AIResponse {
